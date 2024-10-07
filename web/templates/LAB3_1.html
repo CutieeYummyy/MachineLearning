@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" http-equiv="Content-Type" content="text/html;width=device-width, initial-scale=1.0 charset=utf-8"/>
+    <title>CutieeYummyy</title>    
+    <style>
+        {% load static %} 
+        body {
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'imgs/background.jpg' %}");
+        }
+        {% load static %} 
+        .icon-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 50px 0;
+            background-color: #e0f7fa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+        }
+    </style>
+<body>
+    <pre><code class="python">
+        <h1>Đoạn Mã Python</h1>
+        import numpy as np
+        import matplotlib.pyplot as plt
+
+        # Dữ liệu chiều cao và cân nặng
+        X = np.array([180, 162, 183, 174, 160, 163, 180, 165, 175, 170, 170, 169, 168, 175, 169, 171, 155, 158, 175, 165]).reshape(-1, 1)
+        y = np.array([86, 55, 86.5, 70, 62, 54, 60, 72, 93, 89, 60, 82, 59, 75, 56, 89, 45, 60, 60, 72]).reshape((-1, 1))
+
+        # Thêm cột 1 vào X
+        X = np.insert(X, 0, 1, axis=1)
+
+        # Tính toán theta
+        theta = np.linalg.inv(X.T @ X) @ X.T @ y
+
+        # Dự đoán cho các giá trị chiều cao
+        x1 = 150
+        y1 = theta[0] + theta[1] * x1
+        x2 = 190
+        y2 = theta[0] + theta[1] * x2
+
+        # Vẽ biểu đồ
+        plt.plot([x1, x2], [y1, y2], 'r-')
+        plt.plot(X[:, 1], y[:, 0], 'bo')
+        plt.xlabel('Chiều cao')
+        plt.ylabel('Cân nặng')
+        plt.title('Chiều cao và cân nặng của sinh viên VLU')
+        plt.show()
+    </code></pre>
+    <!-- Nút để người dùng bấm vào -->
+    <form method="POST">
+        {% csrf_token %}
+        <button type="icon-button">Hiển thị biểu đồ</button>
+    </form>
+
+    <!-- Hiển thị biểu đồ nếu đã được tạo -->
+    {% if plot_created %}
+        <h2>Biểu đồ đã tạo:</h2>
+        <img src="/media/result_plot.png" alt="Result Plot">
+    {% endif %}
+</body>

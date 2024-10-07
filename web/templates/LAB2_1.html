@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 2 - Gaussian Naive Bayes Results</title>
+</head>
+<body>
+    <h1>Gaussian Naive Bayes Results</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Run Model</button>
+    </form>
+
+    {% if results %}
+        <h2>Data Preview:</h2>
+        <pre>{{ results.data_preview }}</pre>
+        <h2>Results:</h2>
+        <p><strong>Accuracy:</strong> {{ results.accuracy }}</p>
+        <h3>Classification Report:</h3>
+        <pre>{{ results.classification_report }}</pre>
+
+    {% else %}
+        <p>No results yet. Please run the model to see results.</p>
+    {% endif %}
+
+</body>
+</html>

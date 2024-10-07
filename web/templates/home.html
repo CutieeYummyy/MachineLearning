@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" http-equiv="Content-Type" content="text/html;width=device-width, initial-scale=1.0 charset=utf-8"/>
+    <title>CutieeYummyy</title>
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'web/css/style.css' %}">
+</head>
+<body style='background-image: url("{% static 'imgs/background.jpg' %}");'>
+    <header>
+        {% load static %}
+        <img class="page-cover-image" src="{% static 'imgs/wp5984905.webp' %}"/>
+    </header>
+    <div>
+        <h1 class="page-title">♡ (๑•ᴗ•๑) ♡</h1>
+    </div>
+    <div class="page-body">
+        <div class="column">
+            {% load static %} 
+            <h2>Weekly Laboritor <img src={% static 'imgs/cinnamon.png' %} style="width: 100px; height:fit-content" ></h2>
+            <ul class="to-do-list">
+                <form action="{% url 'lab1' %}" method="get">
+                    <li><button class="icon-button">LAB 1</button></li>
+                </form>
+                <form action="{% url 'lab2_1' %}" method="get">
+                    <li><button class="icon-button">LAB 2.1</button></li>
+                </form>
+                <form action="{% url 'lab2_2' %}" method="get">
+                    <li><button class="icon-button">LAB 2.2</button></li>
+                </form>
+                <form action="{% url 'lab3_1' %}" method="get">
+                    <li><button class="icon-button">LAB 3.1</button></li>
+                </form>
+                <form action="{% url 'lab3_2' %}" method="get">
+                    <li><button class="icon-button">LAB 3.2</button></li>
+                </form>
+                <form action="{% url 'lab3_3' %}" method="get">
+                    <li><button class="icon-button">LAB 3.3</button></li>
+                </form>
+                <form action="{% url 'lab4_1' %}" method="get">
+                    <li><button class="icon-button">LAB 4.1</button></li>
+                </form>
+            </ul>
+        </div>
+        <div class="column">
+            <div class="reminders">
+                <h3>Reminders</h3>
+                <ul class="bulleted-list">
+                    <li>📅 Monday 9/10/11 - 2024 - Practice Class</li>
+                </ul>
+            </div>
+            <h2>Personal Info</h2>
+            <p><strong>Quang Mỹ Tâm</strong> - “<em>2274802010784</em>”</p>
+            {% load static %} 
+            <img src={% static 'imgs/download.png' %} style="width: 400px; height:400px">
+        </div>
+</body>
+<footer>
+    <p>@CutieeYummyy</p>
+</footer>
+</html>
