@@ -1,3 +1,6 @@
 pip install bootstrap3, bootstrap4
 pip install pandas scikit-learn
 pip install pandas numpy matplotlib
+pip install -r path/to/your/requirements.txt
+pip freeze > requirements.txt
+pip install python3
